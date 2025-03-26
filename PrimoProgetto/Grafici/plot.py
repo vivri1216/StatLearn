@@ -20,9 +20,9 @@ for i in range(values.shape[1]):
     bars = ax.barh(index + i * bar_width, values[:, i], bar_width, label=num[i], color=colors[i])
     # Add value labels on the bars
     for bar in bars:
-        ax.text(bar.get_width() + 0.07, bar.get_y() + bar.get_height() / 2, f'{bar.get_width()}', 
+        ax.text(bar.get_width() + 0.07, bar.get_y() + bar.get_height() / 2, f'{bar.get_width()}',
                 va='center', ha='right', color='black', fontsize=8)
-        
+
 # Adjust y-ticks to be in the center of the grouped bars
 ax.set_yticks(index + bar_width)
 ax.set_yticklabels(categories)
@@ -39,6 +39,9 @@ ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 ax.spines['bottom'].set_visible(False)
 ax.spines['left'].set_visible(False)
+
+# Add vertical line at 0.95
+ax.axvline(0.95, color='gray', linestyle='--', linewidth=1)
 
 ax.legend()
 
